@@ -1,17 +1,21 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import { useMessageStore } from '@/stores/message'
+import { SpeedInsights } from '@vercel/speed-insights/vue'
+
 import { storeToRefs } from 'pinia'
 const store = useMessageStore()
 const { message } = storeToRefs(store)
 </script>
 
 <template>
+  <SpeedInsights />
   <div id="layout">
     <header>
       <div id="flashMessage" v-if="message">
         <h4>{{ message }}</h4>
       </div>
+      <h1>Deploy with Vercel</h1>
       <div class="wrapper">
         <nav>
           <RouterLink :to="{ name: 'event-list-view' }">Event</RouterLink> |
